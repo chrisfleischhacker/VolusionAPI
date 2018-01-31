@@ -3,9 +3,7 @@ using System.Xml;
 using System.Configuration;
 using System.Reflection;
 using System.ComponentModel;
-using CerealBox;
 using Newtonsoft.Json;
-
 using System.IO;
 using System.Data;
 using System.Net;
@@ -22,7 +20,6 @@ namespace VAPIConsoleReader
                 string xml = Utils.GetAPIGenericURL(EDIName.Customers);
                 XMLPostManager manager = new XMLPostManager();
                 XmlDocument doc = manager.GetXMLFromURL(xml);
-                MemoryStream ms = new MemoryStream();
                 string json = JsonConvert.SerializeXmlNode(doc);
                 Console.WriteLine("XML -> JSON: {0}", json);
                 Console.ReadLine();
